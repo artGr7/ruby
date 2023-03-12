@@ -2,7 +2,7 @@ def num_of_mutually_prime_x_and_y(x)
   def are_nums_mutually_prime?(x, y)
     a=1 # a - делитель
     num=0 # num - количество делителей
-    while (a<x)
+    while (a<=x)
       if (x%a==0 and y%a==0)
         num+=1
         a+=1
