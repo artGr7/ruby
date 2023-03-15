@@ -1,15 +1,15 @@
 def TASK8(arr) # Дан целочисленный массив. Необходимо найти индексы двух наименьших элементов массива.
   a = arr.min(2)
-  return puts arr.index(a[0]).to_s + " #{arr.index(a[1])}"
+  arr.index(a[0]).to_s + " #{arr.index(a[1]).to_s}"
 end
 
 def TASK20(arr) # Дан целочисленный массив. Необходимо найти все пропущенные числа.
-  new_array = Array(arr[0]..arr[x.length-1])
-  puts new_array - arr
+  new_array = Array(arr.min..arr.max)
+  new_array - arr
 end
 
 def TASK32(arr) # Дан целочисленный массив. Найти количество его локальных максимумов.
-  puts a.select.with_index {|el, i| i!=0 and i!=a.length-1 and a[i]>a[i+1] and a[i]>a[i-1]}.length
+  arr.select.with_index {|el, i| i!=0 and i!=arr.length-1 and arr[i]>arr[i+1] and arr[i]>arr[i-1]}.length
 end
 
 def TASK44(array) # Дан массив чисел. Необходимо проверить, чередуются ли в нем целые и вещественные числа.
@@ -23,7 +23,7 @@ def TASK56(arr) # Для введенного списка посчитать с
   prime_arr = arr.keep_if { |el| el.prime? == true}
   prime_avg = prime_arr.inject { |sum, el| sum + el }.to_f / arr.size
   noprime_arr = arr.keep_if {|el| el > prime_avg and el.prime? == false}
-  puts noprime_arr.inject { |sum, el| sum + el }.to_f / arr.size
+  noprime_arr.inject { |sum, el| sum + el }.to_f / arr.size
 end
 
 def complete(path)
@@ -43,7 +43,7 @@ def complete(path)
     when 56
       p TASK56(data)
     else
-      puts "incorrect"
+      puts "Ты где тут нашел #{numb}???"
   end
 end
 
