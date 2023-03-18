@@ -1,3 +1,5 @@
+# Найти делитель числа, являющийся взаимно простым с наибольшим количеством цифр данного числа.
+
 def the_divisor_of_a_number_that_is_mutually_prime_with_the_number_of_digits(x)
   def amount_of_digits(x)
     amount=0
