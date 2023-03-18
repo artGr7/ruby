@@ -1,3 +1,5 @@
+# Найти количество чисел, взаимно простых с заданным.
+
 def num_of_mutually_prime_x_and_y(x)
   def are_nums_mutually_prime?(x, y)
     a=1 # a - делитель
