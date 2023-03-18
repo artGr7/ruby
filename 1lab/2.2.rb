@@ -1,3 +1,5 @@
+# Найти сумму цифр числа, делящихся на 3
+
 def sum_of_digits_div3(x)
   sum=0
   while (x!=0)
