@@ -1,23 +1,13 @@
-load('1.2.rb')
-first_guy = Student.new("Бекеров", "Алиссон", "Бразильевич")
-first_guy.megaprint
-second_guy = Student.new("Трентов", "Саша-Арнольд", "Англиевич")
-second_guy.megaprint
-third_guy = Student.new("Гомезов", "Джо", "Англиевич")
-third_guy.megaprint
-fourth_guy = Student.new("Вандайков", "Вирджил", "Голандович")
-fourth_guy.megaprint
-fifth_guy = Student.new("Робертсонов", "Эндрю", "Скотландович")
-fifth_guy.megaprint
-sixth_guy = Student.new("Нетфамилиев", "Фабиньо", "Бразильевич")
-sixth_guy.megaprint
-seventh_guy = Student.new("Хендерсонов", "Джордан", "Англиевич")
-seventh_guy.megaprint
-eighth_guy = Student.new("Милнеров", "Джеймс", "Англиевич")
-eighth_guy.megaprint
-nineth_guy = Student.new("Мохамедов", "Салах", "Египтович")
-nineth_guy.megaprint
-tenth_guy = Student.new("Нуньезов", "Дарвин", "Уругваевич")
-tenth_guy.megaprint
-eleventh_guy = Student.new("Гакпоев", "Коди", "Голандович")
-eleventh_guy.megaprint
+load('student.rb')
+first_guy = Student.new(lastName: "Бекеров", name: "Алиссон", patronymic: "Бразильевич")
+second_guy = Student.new(lastName: "Трентов", name: "Саша-Арнольд", patronymic: "Англиевич")
+third_guy = Student.new(lastName: "Гомезов", name: "Джо", patronymic: "Англиевич")
+fourth_guy = Student.new(lastName: "Вандайков", name: "Вирджил", patronymic: "Голандович")
+fifth_guy = Student.new(lastName: "Робертсонов", name: "Эндрю", patronymic:"Скотландович")
+sixth_guy = Student.new(lastName: "Нетфамилиев", name: "Фабиньо", patronymic: "Бразильевич")
+seventh_guy = Student.new(lastName: "Хендерсонов", name: "Джордан", patronymic: "Англиевич")
+eighth_guy = Student.new(lastName: "Милнеров", name: "Джеймс", patronymic: "Англиевич")
+nineth_guy = Student.new(lastName:"Мохамедов", name: "Салах", patronymic: "Египтович")
+tenth_guy = Student.new(lastName: "Нуньезов", name: "Дарвин", patronymic: "Уругваевич")
+eleventh_guy = Student.new(lastName:"Гакпоев", name: "Коди", patronymic: "Голандович")
+puts "#{eleventh_guy.to_s}, #{tenth_guy.to_s}, #{nineth_guy.to_s}, #{eighth_guy.to_s}, #{seventh_guy.to_s}, #{sixth_guy.to_s}, #{fifth_guy.to_s}, #{fourth_guy.to_s}, #{third_guy.to_s}, #{second_guy.to_s}, #{first_guy.to_s}"
