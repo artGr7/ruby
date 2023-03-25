@@ -12,7 +12,7 @@ class Student
     @git = git
   end
 
-  def megaprint
+  def to_s
     puts "Id: #{@id}, Lastname: #{@lastName}, Name: #{@name}, Patronymic: #{@patronymic}, Phone: #{@phone}, Telegram #{@telegram}, Email #{@email}, Github link: #{@git}\n\n"
   end
 
