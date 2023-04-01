@@ -17,7 +17,7 @@ class Student
   end
 
   def self.check_phone(phone)
-    phone.match /^\+?[7,8]{1}\-\d{3}\-\d{3}\-\d{2}\-\d{2}$/
+    phone.match /\A\+?\d{11}\z/
   end
 
   def phone=(phone)
@@ -73,5 +73,17 @@ class Student
   def email=(email)
     raise TypeError, "Bad mail: #{email}" if !email.nil?&&!Student.email_valid?(email)
     @email = email
+  end
+  
+  def validate_git?
+    @git!=nil
+  end
+
+  def validate_contacts?
+    @phone!=nil or @email!=nil or @telegram!=nil
+  end
+
+  def self.validate
+    validate_contacts? and validate_git?
   end
 end
