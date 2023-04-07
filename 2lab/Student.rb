@@ -1,3 +1,5 @@
+load 'main.rb'
+
 class Student
   attr_reader :id, :lastName, :name, :patronymic, :phone, :telegram, :email, :git
 
@@ -21,7 +23,7 @@ class Student
   end
 
   def phone=(phone)
-    raise ArgumentError,"Invalid phone number" if !phone.nil?&&!Student.check_phone(phone)
+    raise ArgumentError,"Invalid phone number" if !phone.nil?&&Student.check_phone(phone)==nil
     @phone = phone
   end
 
@@ -35,7 +37,7 @@ class Student
   end
 
   def self.name_valid?(name)
-    name.match /^[A-Z][^A-Z\d]+$/
+    name.match /^[А-Я][^А-Я\d]+$/
   end
 
   def name=(name)
@@ -67,23 +69,30 @@ class Student
   end
 
   def self.email_valid?(email)
-    email.match /^[\d\w]+\@gmail.com$/
+    email.match /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   end
 
   def email=(email)
-    raise TypeError, "Bad mail: #{email}" if !email.nil?&&!Student.email_valid?(email)
+    raise TypeError, "Bad mail: #{email}" if !email.nil?&&!Student.email_valid?(email)==nil
     @email = email
   end
-  
+
   def validate_git?
-    @git!=nil
+    git!=nil
   end
 
   def validate_contacts?
-    @phone!=nil or @email!=nil or @telegram!=nil
+    self.phone!=nil or self.email!=nil or self.telegram!=nil
   end
 
-  def self.validate
+  def validate
     validate_contacts? and validate_git?
   end
+
+  def set_contacts(phone: nil, telegram: nil, email: nil)
+    self.phone= phone
+    self.telegram= telegram
+    self.email= email
+  end
+
 end
