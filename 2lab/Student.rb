@@ -1,5 +1,3 @@
-load 'main.rb'
-
 class Student
   attr_reader :id, :lastName, :name, :patronymic, :phone, :telegram, :email, :git
 
@@ -15,7 +13,7 @@ class Student
     end
 
   def to_s
-    "Id: #{@id}, Lastname: #{@lastName}, Name: #{@name}, Patronymic: #{@patronymic}, Phone: #{@phone}, Telegram #{@telegram}, Email #{@email}, Github link: #{@git}\n\n"
+    "Id: #{@id}, Lastname: #{@lastName}, Name: #{@name}, Patronymic: #{@patronymic}, Phone: #{@phone}, Telegram #{@telegram}, Email #{@email}, Github link: #{@git}"
   end
 
   def self.check_phone(phone)
@@ -48,6 +46,11 @@ class Student
   def lastName=(lastName)
     raise TypeError, "Bad name: #{lastName}" if !lastName.nil?&&!Student.name_valid?(lastName)
     @lastName = lastName
+  end
+
+  def patronymic=(patronymic)
+    raise TypeError, "Bad name: #{patronymic}" if !patronymic.nil?&&!Student.name_valid?(patronymic)
+    @patronymic = patronymic
   end
 
   def self.git_valid?(git)
@@ -95,4 +98,30 @@ class Student
     self.email= email
   end
 
+  def self.from_s(str)
+    hash = str.split(', ').map{|el| el.split(': ')}.to_h
+    Student.new(lastName: hash["lastName"], name: hash["name"], patronymic: hash["patronymic"], phone: hash["phone"], telegram: hash["telegram"], email: hash["email"], git: hash["git"])
+  end
+
+  def getInfo
+    "Имя: #{@lastName} #{@name[0]}. #{@patronymic[0]}. Git: #{@git} Phone: #{@phone} telegram: #{@telegram} email: #{@email}"
+  end
+
 end
+
+first_guy = Student.new(lastName: "Кто", name: "Яя", patronymic: "Ты", phone: "89182338282", git: "sddsd")
+puts first_guy.getInfo
+
+
+
+#def getInfo
+#  if validate_git?
+#    "Имя: #{@lastName} #{@name[0]}. #{@patronymic[0]}. Git: #{@git} Phone: #{@phone} telegram: #{telegram} email: #{@email}"
+#  else
+#    if validate_contacts?
+#      "Имя: #{@lastName} #{@name[0]}. #{@patronymic[0]}. Phone: #{@phone} telegram: #{telegram} email: #{@email}"
+#    else
+#      "no info about #{@lastName} #{name[0]}. #{patronymic[0]}."
+#    end
+#  end
+#end
