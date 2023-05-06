@@ -1,4 +1,3 @@
-
 class Student
   attr_reader :id, :lastName, :name, :patronymic, :phone, :telegram, :email, :git
 
