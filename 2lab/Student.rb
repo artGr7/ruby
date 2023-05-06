@@ -1,3 +1,4 @@
+
 class Student
   attr_reader :id, :lastName, :name, :patronymic, :phone, :telegram, :email, :git
 
@@ -103,25 +104,14 @@ class Student
     Student.new(lastName: hash["lastName"], name: hash["name"], patronymic: hash["patronymic"], phone: hash["phone"], telegram: hash["telegram"], email: hash["email"], git: hash["git"])
   end
 
-  def getInfo
-    "Имя: #{@lastName} #{@name[0]}. #{@patronymic[0]}. Git: #{@git} Phone: #{@phone} telegram: #{@telegram} email: #{@email}"
+  def random_contact
+    if !self.phone.nil? then return "phone: #{self.phone}" end
+    if !self.telegram.nil? then return "telegram: #{self.telegram}" end
+    if !self.email.nil? then return "email: #{self.email}" end
+    return " "
   end
 
+  def getInfo
+    "Имя: #{self.lastName} #{self.name[0]}. #{self.patronymic[0]}. #{if validate_git? then "Git: #{self.git}," end} #{random_contact}"
+  end
 end
-
-first_guy = Student.new(lastName: "Кто", name: "Яя", patronymic: "Ты", phone: "89182338282", git: "sddsd")
-puts first_guy.getInfo
-
-
-
-#def getInfo
-#  if validate_git?
-#    "Имя: #{@lastName} #{@name[0]}. #{@patronymic[0]}. Git: #{@git} Phone: #{@phone} telegram: #{telegram} email: #{@email}"
-#  else
-#    if validate_contacts?
-#      "Имя: #{@lastName} #{@name[0]}. #{@patronymic[0]}. Phone: #{@phone} telegram: #{telegram} email: #{@email}"
-#    else
-#      "no info about #{@lastName} #{name[0]}. #{patronymic[0]}."
-#    end
-#  end
-#end
